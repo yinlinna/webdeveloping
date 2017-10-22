@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QQ登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+	<style>
+		#one img{
+			height:100px ;
+			width: 100px;
+			border-radius: 100px;
+			margin-top:65px ;
+			
+		}
+		form{
+			text-align: center;
+		}
+		form a{
+			width: 100px;
+		}
+		h6{
+			text-align: right;
+			color: #22AADD;
+		}
+	</style>
+	
+	
+	
+<body>
+    <div data-role="page" id="pageone">
+    	<header data-role="header">
+        <h1>QQ登录</h1>
+        </header>
+        
+        <div data-role="content">
+        	<div id="one" align="center">
+        		<img src="images/1.jpg" />
+        	</div>
+        	<div data-role="fieldcontain">
+        		<form method="post">
+        			<label for="user"></label>
+		        	 <input type="text" name="text" id="user" placeholder="QQ号/手机号/邮箱"  />
+		        	 <label for="password"></label>
+		        	 <input type="password" name="password" id="password"  placeholder="输入密码" />
+		        	 <h6>忘记密码</h6>
+        			 <a href="QQchat.html" class="ui-btn ui-btn-inline" id="btn">登录</a>
+        			<a href="QQsign up.html" class="ui-btn ui-btn-inline" >注册</a>
+        		</form>
+        		
+	        	
+			</div>
+        </div>
+  
+        
+    </div>
+	</body>
+	<script>
+		$('#btn').click(function(){
+		var user=$('#user').val();  //输入框id
+ 		var password1=$('#password').val(); //密码框id
+		$.ajax({
+			type:'get',
+			url:'http://datainfo.duapp.com/shopdata/userinfo.php ',
+
+			data:{status:'login',userID:user,password:password1},
+			
+			success:function(data){
+				if(data == 0){
+					alert('用户名不存在');
+				}
+				else if(data == 2){
+					alert('用户名密码不符');
+				}
+				else{
+					window.location.href="QQchat.html";
+				}		
+			}
+		})
+	})
+	</script>
+</html>

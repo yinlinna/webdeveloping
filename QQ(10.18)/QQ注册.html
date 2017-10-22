@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QQ注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+	<style>
+		form{
+			text-align: center;
+			padding: 50px;
+		}
+		form a{
+			margin: 50px;
+		}
+	</style>
+<body>
+    <div data-role="page" id="pagethree">
+    	
+        <header data-role="header">
+        <h1>添加或注册账号</h1>
+        </header>
+        
+         <script>
+	$('#btn').click(function(){
+		var user1=$('#user').val();  //输入框id
+ 		var password1=$('#password').val(); //密码框id
+		$.ajax({
+			type:'post',
+			url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+
+			data:{status:'register',userID:'user1',password:'password1'},
+			
+			success:function(data){
+				if(data == 0){
+					alert('用户名重名');
+				}
+				else if(data == 2){
+					alert('数据库报错');
+				}
+				else{
+					alert("注册成功");
+					window.location.href="http://www.baidu.com";
+				}		
+			},
+			error:function(){
+        alert('error');
+    }
+		});
+	})
+	</script>
+        <div data-role="page" id="pagethree">
+        	 <div data-role="content">
+        	 	
+        </div>
+       
+        	
+        		<div id="two"  class="ui-field-contain" data-role="fieldcontain">
+        			<form name="firm1">
+			        	<label for="textarea">输入昵称：</label>
+			        	<input type="text" name="username" id="user" placeholder="QQ号/手机号/邮箱"/>
+			        	<label for="textarea">输入密码：</label>
+			        	<input type="password" id="password"  placeholder="输入密码" />
+			        	<label for="textarea"></label>
+			        	<input type="password" name="text" id="password"  placeholder="确认密码" />
+		        	
+		        	 	<button id="btn" type='submit'>注册</button>
+            			<a href="sign in.html" class="ui-btn">登录已有账号</a> <!--onclick="return Check(this.form)"-->
+		        	 	
+		        	 	<!--<a href="QQ列表.html" class="ui-btn ui-btn-inline" onclick="signIN">注册</a>
+                         -->>
+	        	 	</form>
+				</div>
+        	
+        	
+        </div>
+    </div>
+	</head>
+	<body>
+	</body>
+</html>

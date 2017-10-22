@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QQ列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<style>
+	span{
+				float: right;
+				color:darkgray;
+				font-size:10px;				
+			}
+	h1{
+		text-align: center;
+		font-family: "微软雅黑"; 
+		margin: auto;
+	}
+	header{
+		background-color: #22AADD;
+	}
+	#one{
+		padding: 2px;
+		border-radius: 50px;
+		width: 60px;
+		height:60px;
+	}
+	#img{
+		padding: 5px;
+		border-radius: 50px;
+		width: 70px;
+		height:70px;
+	}
+</style>
+
+
+
+	<body>
+		<header data-role="page" id="pagetwo">
+			
+			<header data-role="header" data-position="fixed">
+				 <ul data-role="listview" id="ul">
+                    <li>
+                        <a href="#">
+                            <img src="images/1.jpg"  id="one">
+                            <h1 >消息</h1>   
+                        <a href="#" data-icon="plus" data-iconpos="notext" id="plus"></a>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            
+			<div date-role="content">
+				<div data-role="filecontain" data-filter="true" data-filter-placeholder="搜索">
+				<!--
+                	<label for="search" ></label>
+					<input type="search" name="search" id="search" value="" / >
+                -->	
+				</div>
+				<ul data-role="listview" class="ullist">
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+				<li data-icon="false">
+					<a href="#"> 
+						<img src="images/1.jpg" id="img">
+							<h2>刘昊然<span>昨天</span></h2>
+							<p>早安</p>
+					</a>
+				</li>
+			</div>
+			
+			<footer data-role="footer" data-position="fixed"  data-tap-toggle="false" >
+				<div data-role="navbar">
+					 <ul>
+					<li><a href="#" data-icon="home">消息</a></li>
+					<li><a href="#" data-icon="home">联系人</a></li>
+					<li><a href="#" data-icon="home">动态</a></li>
+				</ul>
+				</div>
+				
+				
+			</footer>
+		</div>
+	</body>
+	<script>
+			$(document).on('pagecreate',function(){
+				$('ullist').on('swipeleft','li',function(){
+					$('ullist').append($(this));
+				});
+			});
+		</script>
+</html>
